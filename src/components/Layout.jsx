@@ -413,7 +413,7 @@ const DashboardContent = () => {
                 <th style={contentStyles.tableHeaderCell}>Masa</th>
                 <th style={contentStyles.tableHeaderCell}>Durum</th>
                 <th style={contentStyles.tableHeaderCell}>Özel İstekler</th>
-                <th style={{...contentStyles.tableHeaderCell, textAlign: 'right'}}>Eylemler</th>
+                <th style={{...contentStyles.tableHeaderCell, textAlign: 'right'}}>İşlemler</th>
               </tr>
             </thead>
             <tbody>
