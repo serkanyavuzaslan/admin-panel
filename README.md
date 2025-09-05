@@ -22,3 +22,10 @@ Yönetici, rezervasyonları görüntüleyebilir, ekleyebilir, düzenleyebilir ve
 3.Rezervasyon tablosu başlangıçta hem Rezervasyon hem de Anasayfa kısmında bulunuyordu. Tabloyu yalnızca Anasayfa kısmında bıraktım. Rezervasyon ekleme bölümünden yeni bir rezervasyon eklendiğinde, bu rezervasyonun anasayfada görüntülenmesini sağladım. Ancak veriler kalıcı olarak saklanmadığı için sayfa yenilendiğinde kayboluyor.
 
 4.Daha estetik ve profesyonel bir görünüm elde etmek için önceki versiyona göre çeşitli tasarım iyileştirmeleri yaptım.
+
+## 📸 Ekran Görüntüleri
+
+![Login Giriş Ekranı](src/assets/login.png)
+![Ana Sayfa Görünümü](src/assets/dashboard.png)
+![Rezervazyon Sayfası Görünümü](src/assets/reservations.png)
+![Analiz Sayfası Görünümü](src/assets/analytics.png)
