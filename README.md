@@ -1,12 +1,24 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛎️ Restoran Rezervasyon Admin Paneli
 
-Currently, two official plugins are available:
+Bu proje, restoran rezervasyon süreçlerini yönetmek için geliştirilmiş bir **React + Vite tabanlı admin panel uygulamasıdır**.  
+Yönetici, rezervasyonları görüntüleyebilir, ekleyebilir, düzenleyebilir ve analiz edebilir.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Özellikler
+- 📅 Rezervasyon Ekle / Düzenle / Sil  
+- 👥 Müşteri Yönetimi  
+- 📊 Performans ve İstatistik Kartları  
+- 📈 Grafikler ile Görsel Analiz (Recharts)  
+- 🎨 Modern ve responsive arayüz  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+1.Recharts kullandım. Grafik ve tabloyu bu kütüphane ile oluşturarak daha gerçekçi bir görünüm elde ettim.
+
+2.components klasörü altında analytics, dashboard, reservations, ui gibi alt klasörler oluşturarak bileşenleri ayırdım. pages klasöründe ilgili dosyaları açıp JSX dosyalarına entegre ettim. Bu sayede 800–900 satırlık uzun kodları önemli ölçüde azalttım. Ayrıca bileşenleri ayrı ayrı düzenlediğim için aradığım kodu kolayca bulabiliyorum.
+
+3.Rezervasyon tablosu başlangıçta hem Rezervasyon hem de Anasayfa kısmında bulunuyordu. Tabloyu yalnızca Anasayfa kısmında bıraktım. Rezervasyon ekleme bölümünden yeni bir rezervasyon eklendiğinde, bu rezervasyonun anasayfada görüntülenmesini sağladım. Ancak veriler kalıcı olarak saklanmadığı için sayfa yenilendiğinde kayboluyor.
+
+4.Daha estetik ve profesyonel bir görünüm elde etmek için önceki versiyona göre çeşitli tasarım iyileştirmeleri yaptım.

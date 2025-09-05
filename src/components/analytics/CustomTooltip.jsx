@@ -1,5 +1,7 @@
 import React from "react";
 
+//  Recharts grafiklerinde fareyle üzerine gelince özelleştirilmiş tooltip gösterir.
+
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (

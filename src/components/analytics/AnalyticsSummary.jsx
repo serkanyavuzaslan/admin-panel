@@ -1,5 +1,7 @@
 import React from "react";
 
+// Bu kodlar analiz sayfasının en altında kalan kısım.
+
 const AnalyticsSummary = ({ data }) => {
   if (!data || data.length === 0) {
     return (

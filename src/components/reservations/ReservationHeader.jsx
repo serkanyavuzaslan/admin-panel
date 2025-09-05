@@ -57,7 +57,7 @@ const ReservationHeader = () => {
       <div style={decorativeStyles2}></div>
       <div style={{ position: 'relative', zIndex: 2 }}>
         <h1 style={titleStyles}>📅 Reservasyon Ekle</h1>
-        <p style={subtitleStyles}>Rezervasyon yönetimi ve son eklenenlerin listesi</p>
+        <p style={subtitleStyles}>Yeni eklenen rezervasyonları anasayfaya taşır</p>
       </div>
     </div>
   );

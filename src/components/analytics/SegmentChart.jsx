@@ -1,4 +1,7 @@
 import React from "react";
+
+// Müşteri segmentleri kısmı.
+
 import {
   ResponsiveContainer,
   PieChart,
@@ -12,7 +15,7 @@ const SegmentChart = ({ data }) => {
   return (
     <div
       style={{
-        background: "#fff",
+        background: "#ffffffff",
         borderRadius: "16px",
         padding: "24px",
         boxShadow: "0 4px 12px rgba(0,0,0,0.05)",

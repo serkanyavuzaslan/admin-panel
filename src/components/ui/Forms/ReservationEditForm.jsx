@@ -65,7 +65,7 @@ const ReservationEditForm = ({
 
   const cancelButtonStyles = {
     padding: '8px 16px',
-    backgroundColor: '#806f6bff',
+    backgroundColor: '#7c7675ff',
     color: 'white',
     border: 'none',
     borderRadius: '6px',

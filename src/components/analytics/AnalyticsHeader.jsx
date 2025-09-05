@@ -1,5 +1,7 @@
 import React from "react";
 
+// Bu kodlar header kısım.
+
 const AnalyticsHeader = () => {
   return (
     <div

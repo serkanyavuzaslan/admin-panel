@@ -1,5 +1,7 @@
 import React from "react";
 
+// Aylık performans tablosu.
+
 const PerformanceTable = ({ data }) => {
   return (
     <div
@@ -25,15 +27,16 @@ const PerformanceTable = ({ data }) => {
             color: "#1e293b",
           }}
         >
-          📅 Aylık Performans Tablosu
+          📋 Aylık Performans Tablosu
         </h3>
         <div style={{
-          padding: "6px 12px",
-          backgroundColor: "#f0fdf4",
-          color: "#16a34a",
+          padding: "8px 15px",
+          backgroundColor: "#d2f6ddff",
+          color: "#0b7934ff",
           borderRadius: "8px",
           fontSize: "12px",
-          fontWeight: "600"
+          fontWeight: "600",
+          cursor:"pointer"
         }}>
           12 Aylık Özet
         </div>
@@ -43,7 +46,7 @@ const PerformanceTable = ({ data }) => {
         width: "100%", 
         borderCollapse: "separate",
         borderSpacing: "0",
-        fontSize: "14px"
+        fontSize: "14px",
       }}>
         <thead>
           <tr>

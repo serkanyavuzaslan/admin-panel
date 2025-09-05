@@ -1,5 +1,7 @@
 import React from "react";
 
+// Bu kodlar en altta bulunan kısım.
+
 const AnalyticsFooter = () => {
   return (
     <div

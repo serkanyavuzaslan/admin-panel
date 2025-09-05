@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Dashboard header kısmı.
+
 const DashboardHeader = () => {
   const headerStyles = {
     display: 'flex',

@@ -1,4 +1,7 @@
 import React from "react";
+
+// Aylık Rezervasyon ve Gelir Trendi kısmı.
+
 import {
   ResponsiveContainer,
   CartesianGrid,

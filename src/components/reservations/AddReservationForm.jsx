@@ -1,4 +1,7 @@
 import React from "react";
+
+// Rezervasyon ekleme kısmı.
+
 import FormInput from "./FormInput";
 
 const AddReservationForm = ({ formData, handleChange, handleSubmit }) => {
