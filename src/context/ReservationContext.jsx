@@ -1,6 +1,6 @@
 // 📁 Konum: src/context/ReservationContext.jsx
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ReservationContext = createContext();
 
@@ -13,8 +13,11 @@ export const useReservationContext = () => {
 };
 
 export const ReservationProvider = ({ children }) => {
-  // Ana rezervasyon verisi
-  const [reservations, setReservations] = useState([
+  // LocalStorage anahtarı
+  const STORAGE_KEY = 'restaurantReservations';
+
+  // Başlangıç verileri (ilk kez açılırsa kullanılacak)
+  const initialReservations = [
     {
       id: "RSV-001",
       customerName: "Ahmet Yılmaz",
@@ -51,7 +54,7 @@ export const ReservationProvider = ({ children }) => {
       status: "İptal Edildi",
       specialRequests: "Doğum günü kutlaması"
     },
-     {
+    {
       id: "RSV-004",
       customerName: "Serkan Yavuzaslan",
       email: "serkanyavuz@gmail.com",
@@ -64,55 +67,88 @@ export const ReservationProvider = ({ children }) => {
       specialRequests: "Arkadaş buluşması"
     },
     {
-  id: "RSV-005",
-  customerName: "Ayşe Demir",
-  email: "aysedemir@gmail.com",
-  phone: "05431234567",
-  date: "2025-09-28",
-  time: "19:30",
-  guests: 4,
-  table: "3",
-  status: "Beklemede",
-  specialRequests: "Vegan menü"
-},
-{
-  id: "RSV-006",
-  customerName: "Mehmet Can",
-  email: "mehmetcan@gmail.com",
-  phone: "05542345678",
-  date: "2025-09-29",
-  time: "21:00",
-  guests: 2,
-  table: "5",
-  status: "Onaylandı",
-  specialRequests: "Doğum günü süslemeleri"
-},
-{
-  id: "RSV-007",
-  customerName: "Elif Kaya",
-  email: "elifkaya@gmail.com",
-  phone: "05359876543",
-  date: "2025-09-30",
-  time: "18:45",
-  guests: 6,
-  table: "7",
-  status: "İptal Edildi",
-  specialRequests: "Pencereli masa"
-},
-{
-  id: "RSV-008",
-  customerName: "Ahmet Yıldız",
-  email: "ahmetyildiz@yahoo.com",
-  phone: "05438765432",
-  date: "2025-10-01",
-  time: "20:15",
-  guests: 3,
-  table: "2",
-  status: "Onaylandı",
-  specialRequests: "Sessiz bir köşe"
-}
+      id: "RSV-005",
+      customerName: "Ayşe Demir",
+      email: "aysedemir@gmail.com",
+      phone: "05431234567",
+      date: "2025-09-28",
+      time: "19:30",
+      guests: 4,
+      table: "3",
+      status: "Beklemede",
+      specialRequests: "Vegan menü"
+    },
+    {
+      id: "RSV-006",
+      customerName: "Mehmet Can",
+      email: "mehmetcan@gmail.com",
+      phone: "05542345678",
+      date: "2025-09-29",
+      time: "21:00",
+      guests: 2,
+      table: "5",
+      status: "Onaylandı",
+      specialRequests: "Doğum günü süslemeleri"
+    },
+    {
+      id: "RSV-007",
+      customerName: "Elif Kaya",
+      email: "elifkaya@gmail.com",
+      phone: "05359876543",
+      date: "2025-09-30",
+      time: "18:45",
+      guests: 6,
+      table: "7",
+      status: "İptal Edildi",
+      specialRequests: "Pencereli masa"
+    },
+    {
+      id: "RSV-008",
+      customerName: "Ahmet Yıldız",
+      email: "ahmetyildiz@yahoo.com",
+      phone: "05438765432",
+      date: "2025-10-01",
+      time: "20:15",
+      guests: 3,
+      table: "2",
+      status: "Onaylandı",
+      specialRequests: "Sessiz bir köşe"
+    }
+  ];
 
-  ]);
+  // LocalStorage'dan verileri yükleme fonksiyonu
+  const loadReservationsFromStorage = () => {
+    try {
+      const savedReservations = localStorage.getItem(STORAGE_KEY);
+      if (savedReservations) {
+        return JSON.parse(savedReservations);
+      }
+      // İlk kez açılıyorsa başlangıç verilerini kaydet ve döndür
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(initialReservations));
+      return initialReservations;
+    } catch (error) {
+      console.error('LocalStorage verisi yüklenirken hata:', error);
+      return initialReservations;
+    }
+  };
+
+  // Ana rezervasyon verisi - LocalStorage'dan yükleniyor
+  const [reservations, setReservations] = useState(loadReservationsFromStorage);
+
+  // Rezervasyonları LocalStorage'a kaydetme fonksiyonu
+  const saveReservationsToStorage = (reservations) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(reservations));
+    } catch (error) {
+      console.error('LocalStorage kaydetme hatası:', error);
+      alert('❗ Veriler kaydedilemedi. Tarayıcı depolama alanı dolu olabilir.');
+    }
+  };
+
+  // Rezervasyonlar değiştiğinde LocalStorage'a kaydet
+  useEffect(() => {
+    saveReservationsToStorage(reservations);
+  }, [reservations]);
 
   // Yeni rezervasyon ekleme fonksiyonu
   const addReservation = (formData) => {
@@ -186,11 +222,23 @@ export const ReservationProvider = ({ children }) => {
     return false;
   };
 
+  // Tüm verileri sıfırlama fonksiyonu (isteğe bağlı)
+  const resetReservations = () => {
+    const confirmReset = window.confirm(
+      "⚠️ TÜM REZERVASYONLAR SİLİNECEK!\n\nBu işlem geri alınamaz. Emin misiniz?"
+    );
+    if (confirmReset) {
+      setReservations(initialReservations);
+      alert("🔄 Tüm veriler sıfırlandı!");
+    }
+  };
+
   const value = {
     reservations,
     addReservation,
     updateReservation,
-    deleteReservation
+    deleteReservation,
+    resetReservations // İsteğe bağlı sıfırlama fonksiyonu
   };
 
   return (
