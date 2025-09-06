@@ -55,12 +55,6 @@ const ReservationTable = ({
         <h2 style={{fontSize: '20px', fontWeight: '600', margin: 0}}>Eklenen Rezervasyonlar</h2>
         <p style={{color: '#6b7280', margin: '4px 0 0 0'}}>Tüm rezervasyon isteklerini yönetin ve takip edin.</p>
         
-        <ReservationFilters
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          statusFilter={statusFilter}
-          setStatusFilter={setStatusFilter}
-        />
       </div>
 
       <div style={{overflowX: 'auto'}}>

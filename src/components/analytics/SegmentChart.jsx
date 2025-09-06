@@ -1,7 +1,4 @@
 import React from "react";
-
-// Müşteri segmentleri kısmı.
-
 import {
   ResponsiveContainer,
   PieChart,
@@ -13,23 +10,8 @@ import CustomTooltip from "./CustomTooltip";
 
 const SegmentChart = ({ data }) => {
   return (
-    <div
-      style={{
-        background: "#ffffffff",
-        borderRadius: "16px",
-        padding: "24px",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-      }}
-    >
-      <h3
-        style={{
-          margin: "0 0 20px 0",
-          fontSize: "18px",
-          fontWeight: "600",
-        }}
-      >
-        👥 Müşteri Segmentleri
-      </h3>
+    <div className="chart-container">
+      <h3 className="chart-title">👥 Müşteri Segmentleri</h3>
       <ResponsiveContainer width="100%" height={240}>
         <PieChart>
           <Pie
@@ -50,50 +32,17 @@ const SegmentChart = ({ data }) => {
           <Tooltip content={<CustomTooltip />} />
         </PieChart>
       </ResponsiveContainer>
-      <div style={{ marginTop: "16px" }}>
+      <div className="segment-legend">
         {data.map((segment, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: "8px",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
+          <div key={index} className="segment-item">
+            <div className="segment-label">
               <div
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  borderRadius: "50%",
-                  backgroundColor: segment.color,
-                }}
+                className="segment-color"
+                style={{ backgroundColor: segment.color }}
               ></div>
-              <span
-                style={{
-                  fontSize: "14px",
-                  color: "#64748b",
-                }}
-              >
-                {segment.name}
-              </span>
+              <span className="segment-name">{segment.name}</span>
             </div>
-            <span
-              style={{
-                fontSize: "14px",
-                fontWeight: "600",
-                color: "#1e293b",
-              }}
-            >
-              %{segment.value}
-            </span>
+            <span className="segment-value">%{segment.value}</span>
           </div>
         ))}
       </div>

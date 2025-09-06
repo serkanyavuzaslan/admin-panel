@@ -1,7 +1,4 @@
 import React from "react";
-
-// Aylık Rezervasyon ve Gelir Trendi kısmı.
-
 import {
   ResponsiveContainer,
   CartesianGrid,
@@ -16,23 +13,8 @@ import CustomTooltip from "./CustomTooltip";
 
 const TrendChart = ({ data }) => {
   return (
-    <div
-      style={{
-        background: "#fff",
-        borderRadius: "16px",
-        padding: "24px",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-      }}
-    >
-      <h3
-        style={{
-          margin: "0 0 20px 0",
-          fontSize: "18px",
-          fontWeight: "600",
-        }}
-      >
-        📈 Aylık Rezervasyon ve Gelir Trendi
-      </h3>
+    <div className="chart-container">
+      <h3 className="chart-title">📈 Aylık Rezervasyon ve Gelir Trendi</h3>
       <ResponsiveContainer width="100%" height={320}>
         <AreaChart data={data || []}>
           <defs>

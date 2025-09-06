@@ -1,14 +1,13 @@
 import React from "react";
-
 import Sidebar from "../../components/dashboard/Sidebar";
 import StatCard from "../../components/analytics/StatCard";
 import TrendChart from "../../components/analytics/TrendChart";
 import SegmentChart from "../../components/analytics/SegmentChart";
 import PerformanceTable from "../../components/analytics/PerformanceTable";
-import CustomTooltip from "../../components/analytics/CustomTooltip";
 import AnalyticsHeader from "../../components/analytics/AnalyticsHeader";
 import AnalyticsSummary from "../../components/analytics/AnalyticsSummary";
 import AnalyticsFooter from "../../components/analytics/AnalyticsFooter";
+import "../../styles/custom.css";
 
 const AnalyticsPage = () => {
   // Daha gerçekçi veriler
@@ -56,41 +55,19 @@ const AnalyticsPage = () => {
   ];
 
   return (
-    <div
-      style={{
-        display: "flex",
-        minHeight: "100vh",
-        backgroundColor: "#f8fafc",
-        fontFamily: "system-ui, -apple-system, sans-serif",
-      }}
-    >
+    <div className="analytics-layout">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Ana içerik */}
-      <div
-        style={{
-          flex: 1,
-          marginLeft: "280px",
-          padding: "32px",
-          minHeight: "100vh",
-          backgroundColor: "#f8fafc",
-        }}
-      >
+      <div className="analytics-main-content">
         {/* Sayfa Başlığı */}
         <AnalyticsHeader />
 
         {/* Kompakt Özet Kartları */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "16px",
-            marginBottom: "24px",
-          }}
-        >
+        <div className="stats-grid">
           {statCards.map((card, index) => (
-            <StatCard 
+            <StatCard
               key={index}
               title={card.title}
               value={card.value}
@@ -101,17 +78,9 @@ const AnalyticsPage = () => {
         </div>
 
         {/* Ana Grafikler */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr",
-            gap: "24px",
-            marginBottom: "32px",
-          }}
-        >
+        <div className="charts-grid">
           {/* Aylık Trend (Area Chart) */}
           <TrendChart data={monthlyStats} />
-          
 
           {/* Müşteri Segmentleri (Donut Chart) */}
           <SegmentChart data={customerSegments} />
@@ -123,8 +92,6 @@ const AnalyticsPage = () => {
         {/* Alt Özet */}
         <AnalyticsSummary data={monthlyStats} />
 
-
-          
         {/* Footer */}
         <AnalyticsFooter />
       </div>
