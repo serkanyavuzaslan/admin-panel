@@ -99,12 +99,10 @@ src/
 ## componnets
 
 ### reservations/ (Rezervasyon ekranı bileşenleri)
-- **AddReservationForm.jsx** → Yeni rezervasyon ekleme formu  
-- **EditReservationModal.jsx** → Mevcut rezervasyonu düzenlemek için modal pencere  
+- **AddReservationForm.jsx** → Yeni rezervasyon ekleme formu   
 - **FormInput.jsx** → Formlarda kullanılan genel input bileşeni  
 - **ReservationHeader.jsx** → Rezervasyon sayfası üst başlığı  
-- **ReservationTable.jsx** → Rezervasyonların tablo halinde listelendiği bileşen  
-- **SearchAndFilter.jsx** → Rezervasyonlarda arama ve filtreleme aracı  
+
 
 ### dashboard/ (Dashboard ekranı bileşenleri)
 - **DashboardHeader.jsx** → Dashboard üst kısmı başlık ve özet  
@@ -137,13 +135,13 @@ src/
 
 ---
 
-## 📂 hooks 
+##  hooks 
 - **useReservationFilter.js** → Rezervasyonlarda filtreleme işlemleri için custom hook  
 - **useReservations.js** → Rezervasyon CRUD (create, read, update, delete) işlemleri için custom hook  
 
 ---
 
-## 📂 Pages (Sayfa bileşenleri)
+##  Pages (Sayfa bileşenleri)
 - **DashboardPage.jsx** → Genel özet ve rezervasyonların yer aldığı sayfa  
 - **ReservationsPage.jsx** → Rezervasyon ekleme sayfası
 - **AnalyticsPage.jsx** → Analiz ve grafiksel gösterimlerinin olduğu sayfa
@@ -152,25 +150,25 @@ src/
 
 ---
 
-## 📂 Context
+##  Context
 - **ReservationContext.jsx** → Rezervasyon verilerini global state ile yönetmek için kullanılan React Context API dosyası  
 
 ---
 
-## 📂 Styles
+##  Styles
 - **custom.css** → Projeye özel eklenen stil dosyaları  
 - **style.css** → Genel stil dosyası  
 
 
 
 
-# ✍️ İSİMLENDİRME STANTARTLARI
+#  İSİMLENDİRME STANTARTLARI
 
 Proje boyunca okunabilirlik ve sürdürülebilirlik için tutarlı bir isimlendirme kullanılmakta 
 
 ---
 
-## 📂 Klasörler
+##  Klasörler
 - Klasör isimleri **küçük harf** ve **çoğul** yazılır.  
   Örneğin: `components`, `pages`, `hooks`, `utils`  
 
@@ -208,7 +206,7 @@ Proje boyunca okunabilirlik ve sürdürülebilirlik için tutarlı bir isimlendi
 
 
 
-## 📸 Ekran Görüntüleri
+##  Ekran Görüntüleri
 
 ![Login Giriş Ekranı](src/assets/login.png)
 ![Ana Sayfa Görünümü](src/assets/dashboard.png)
